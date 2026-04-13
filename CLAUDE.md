@@ -1,1 +1,1 @@
-/Users/vinniechow/Projects/luckfocus/claude-rules/CLAUDE.md
+/Users/luckfocus/Projects/claude-rules/CLAUDE.md
