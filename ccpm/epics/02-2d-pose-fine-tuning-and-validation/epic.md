@@ -2,10 +2,10 @@
 name: 02-2d-pose-fine-tuning-and-validation
 status: backlog
 created: 2026-04-13T01:53:20Z
-updated: 2026-04-13T01:53:20Z
+updated: 2026-04-13T02:23:16Z
 progress: 0%
 prd: ccpm/prds/02-2d-pose-fine-tuning-and-validation.md
-github:
+github: https://github.com/vinnie-luckfocus/batana-models/issues/10
 ---
 
 # Epic: 02-2d-pose-fine-tuning-and-validation
