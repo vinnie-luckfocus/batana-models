@@ -3,35 +3,20 @@
   "planFile": "ccpm/prds/plan.json",
   "totalPrds": 5,
   "completedPrds": [
-    "01-2d-pose-recognition-and-cleaning"
+    "01-2d-pose-recognition-and-cleaning",
+    "02-2d-pose-fine-tuning-and-validation"
   ],
   "skippedPrds": [],
   "remainingPrds": [
-    "02-2d-pose-fine-tuning-and-validation",
-    "03-3d-pose-lifting-and-cleaning",
     "04-3d-pose-optimization-and-validation",
     "05-integration-and-delivery"
   ],
-  "currentPrd": null,
+  "currentPrd": "03-3d-pose-lifting-and-cleaning",
   "lastError": null,
-  "status": "completed",
-  "completedAt": "2026-04-13T01:53:20Z",
   "sharedOptions": {
     "maxAuditRounds": 2,
     "maxFixRounds": 3,
     "autoMerge": true
   },
-  "prdState": {
-    "phase": "completed",
-    "epicName": "01-2d-pose-recognition-and-cleaning",
-    "taskCount": 8,
-    "auditRounds": 2,
-    "taskOrder": [2, 3, 4, 5, 6, 7, 8, 9],
-    "currentTask": null,
-    "currentTaskStep": null,
-    "completedTasks": [2, 3, 4, 5, 6, 7, 8, 9],
-    "taskLocalRetryCount": 0,
-    "epicFixRetryCount": 0,
-    "completedAt": "2026-04-13T01:53:20Z"
-  }
+  "prdState": null
 }
