@@ -1,3 +1,6 @@
+import pytest
+
+pytest.importorskip("cv2")
 import numpy as np
 
 

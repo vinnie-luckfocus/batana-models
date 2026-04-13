@@ -4,9 +4,10 @@ import sys
 import tempfile
 from pathlib import Path
 
-import cv2
-import numpy as np
 import pytest
+
+cv2 = pytest.importorskip("cv2")
+np = pytest.importorskip("numpy")
 
 # Import the module under test by adding scripts to path
 sys.path.insert(0, str(Path(__file__).parent.parent))

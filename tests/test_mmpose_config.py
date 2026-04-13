@@ -1,7 +1,9 @@
 from pathlib import Path
 
 import pytest
-from mmengine import Config
+
+mmengine = pytest.importorskip("mmengine")
+Config = mmengine.Config
 
 CONFIG_PATH = Path(__file__).parent.parent / "configs" / "rtmpose_m_finetune_baseball.py"
 

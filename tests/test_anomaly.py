@@ -1,5 +1,7 @@
-import numpy as np
 import pytest
+
+pytest.importorskip("cv2")
+import numpy as np
 
 
 def test_detect_jumps_basic():
