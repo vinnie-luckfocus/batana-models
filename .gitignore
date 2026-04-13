@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+models/2d_pose/*.pth
+models/3d_pose/*.pth
+data/raw_videos/
+data/*_keypoints/
+data/*_cleaned/
+visuals/
+logs/*.csv
+logs/*.json
+logs/*.txt
