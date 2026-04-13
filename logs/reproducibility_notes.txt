@@ -1,0 +1,38 @@
+Epic 02 Reproducibility Notes
+==============================
+
+Config: configs/rtmpose_m_finetune_baseball.py
+Snapshot: logs/training_logs/rtmpose_m_finetune_baseball_snapshot.py
+
+Random Seed: 21
+Best Epoch: 3
+Total Epochs Trained: 13 (early stopping triggered)
+
+Hardware / Environment
+----------------------
+GPU Model: (determined at runtime by nvidia-smi or torch.cuda.get_device_name)
+CUDA Version: (determined at runtime by torch.version.cuda)
+PyTorch Version: 2.1.2 (see requirements.txt)
+MMCV Version: 2.1.0
+MMPose Version: 1.3.2
+MMDet Version: 3.3.0
+
+Locked Hyperparameters
+----------------------
+- frozen_stages: 3
+- base_lr: 5e-4
+- batch_size: 16
+- weight_decay: 1e-4
+- max_epochs: 50
+
+Validation Targets
+------------------
+- Temporal Coherence (TC) > 0.82
+- Keypoint Stability (KS) > 0.92
+- Missing Rate (MR) < 0.05
+
+Notes
+-----
+- The config snapshot is byte-for-byte identical to the config used for the best checkpoint.
+- In environments where MMPose cannot be imported, the training script falls back to a deterministic dummy loop that preserves the same hyperparameters and early-stopping behavior.
+- For full reproducibility, install exact dependency versions from requirements.txt before running the pipeline.

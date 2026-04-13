@@ -493,7 +493,7 @@ def correct_video(
 
         # Global TV-L2 (iterate up to 3 times if TC < threshold)
         for iteration in range(_MAX_TV_ITERATIONS):
-            traj = tv_l2_smooth(traj)
+            traj = tv_l2_smooth(traj, lambda_tv=_TV_LAMBDA)
             tc = compute_trajectory_consistency(traj)
             if tc >= _TC_THRESHOLD:
                 break
@@ -583,7 +583,14 @@ def append_to_csv(log_path: Path, records: list[dict[str, Any]]) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Auto-correct 2D trajectories")
     parser.add_argument("--data-root", type=Path, default=Path("data"))
+    parser.add_argument("--strict-mode", action="store_true", help="Use stricter correction thresholds")
     args = parser.parse_args(argv)
+
+    if args.strict_mode:
+        global _TC_THRESHOLD, _TV_LAMBDA, _BAT_LENGTH_TOLERANCE
+        _TC_THRESHOLD = 0.85
+        _TV_LAMBDA = 0.5
+        _BAT_LENGTH_TOLERANCE = 0.01
 
     paths = resolve_paths(args.data_root)
     raw_files = collect_json_files(paths["train_raw"]) + collect_json_files(paths["val_raw"])

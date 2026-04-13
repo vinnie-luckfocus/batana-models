@@ -11,3 +11,4 @@ visuals/
 logs/*.csv
 logs/*.json
 logs/*.txt
+!logs/reproducibility_notes.txt
