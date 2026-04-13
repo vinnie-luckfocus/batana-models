@@ -1,0 +1,11 @@
+{
+  "project": "baseball-swing-pose-analysis",
+  "source": "ccpm/prds/baseball-swing-pose-analysis.md",
+  "prds": [
+    "01-2d-pose-recognition-and-cleaning",
+    "02-2d-pose-fine-tuning-and-validation",
+    "03-3d-pose-lifting-and-cleaning",
+    "04-3d-pose-optimization-and-validation",
+    "05-integration-and-delivery"
+  ]
+}
