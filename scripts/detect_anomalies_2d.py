@@ -84,7 +84,8 @@ def extract_keypoint_trajectory(
 def compute_sliding_statistics(
     displacements: np.ndarray, window_size: int
 ) -> tuple[np.ndarray, np.ndarray]:
-    """Return per-frame mu and sigma using a sliding window over displacements."""
+    """Return per-frame mu and sigma using a sliding window over displacements.
+    The center point is excluded so anomalies do not inflate their own threshold."""
     n = len(displacements)
     mu = np.full(n, np.nan, dtype=np.float32)
     sigma = np.full(n, np.nan, dtype=np.float32)
@@ -92,11 +93,15 @@ def compute_sliding_statistics(
         start = max(0, i - window_size // 2)
         end = min(n, start + window_size)
         start = max(0, end - window_size)
+        # Exclude the center point (index i) from the window
         window = displacements[start:end]
-        valid = window[~np.isnan(window)]
+        mask = np.ones(len(window), dtype=bool)
+        if start <= i < end:
+            mask[i - start] = False
+        valid = window[mask & ~np.isnan(window)]
         if len(valid) > 1:
             mu[i] = float(np.mean(valid))
-            sigma[i] = float(np.std(valid, ddof=1)) if len(valid) > 1 else 0.0
+            sigma[i] = float(np.std(valid, ddof=1))
     return mu, sigma
 
 
